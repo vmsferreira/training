@@ -184,6 +184,40 @@
         </div>
       </div>
       <hr class="divider">
+      <div class="question">
+        <label class="q-label"><span class="q-number">★</span> <span data-i18n="q_country"></span></label>
+        <div class="tags-wrap">
+          <div class="tag-opt"><input type="checkbox" name="pais" value="PT" id="p_pt"><label for="p_pt">🇵🇹 Portugal</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="AO" id="p_ao"><label for="p_ao">🇦🇴 Angola</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="UAE" id="p_uae"><label for="p_uae">🇦🇪 Emirados Árabes</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="BR" id="p_br"><label for="p_br">🇧🇷 Brasil</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="ES" id="p_es"><label for="p_es">🇪🇸 Espanha</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="FR" id="p_fr"><label for="p_fr">🇫🇷 França</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="DE" id="p_de"><label for="p_de">🇩🇪 Alemanha</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="GB" id="p_gb"><label for="p_gb">🇬🇧 Reino Unido</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="US" id="p_us"><label for="p_us">🇺🇸 Estados Unidos</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="MZ" id="p_mz"><label for="p_mz">🇲🇿 Moçambique</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="CV" id="p_cv"><label for="p_cv">🇨🇻 Cabo Verde</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="ZA" id="p_za"><label for="p_za">🇿🇦 África do Sul</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="NG" id="p_ng"><label for="p_ng">🇳🇬 Nigéria</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="SA" id="p_sa"><label for="p_sa">🇸🇦 Arábia Saudita</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="QA" id="p_qa"><label for="p_qa">🇶🇦 Qatar</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="KW" id="p_kw"><label for="p_kw">🇰🇼 Kuwait</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="IT" id="p_it"><label for="p_it">🇮🇹 Itália</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="NL" id="p_nl"><label for="p_nl">🇳🇱 Holanda</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="CH" id="p_ch"><label for="p_ch">🇨🇭 Suíça</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="CA" id="p_ca"><label for="p_ca">🇨🇦 Canadá</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="AU" id="p_au"><label for="p_au">🇦🇺 Austrália</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="CN" id="p_cn"><label for="p_cn">🇨🇳 China</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="JP" id="p_jp"><label for="p_jp">🇯🇵 Japão</label></div>
+          <div class="tag-opt"><input type="checkbox" name="pais" value="SG" id="p_sg"><label for="p_sg">🇸🇬 Singapura</label></div>
+        </div>
+        <div style="margin-top:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <div class="tag-opt"><input type="checkbox" name="pais" value="outro_pais" id="p_outro"><label for="p_outro">➕ Outro</label></div>
+          <input type="text" name="pais_outro" placeholder="Escreve o teu país..." class="q-input" style="flex:1;min-width:160px;padding:10px 14px;font-size:13px;" oninput="document.getElementById('p_outro').checked=true">
+        </div>
+      </div>
+      <hr class="divider">
       <div class="question" id="coach-branch-q">
         <label class="q-label"><span class="q-number" style="background:#FF6B35;">★</span> <span data-i18n="q_coach"></span></label>
         <div class="options-grid">
@@ -887,7 +921,8 @@ const T = {
 "qc6_3": "€20–50/mês (até 15 clientes)",
 "qc6_4": "€50–100/mês (até 30 clientes)",
 "qc6_5": "Mais de €100/mês (acima de 30 clientes)",
-"qc6_6": "Pagaria por cliente activo (ex: €3/cliente/mês)"
+"qc6_6": "Pagaria por cliente activo (ex: €3/cliente/mês)",
+"q_country": "País onde treinas habitualmente?"
 },
 "en": {
 "lang_name": "English",
@@ -1161,7 +1196,8 @@ const T = {
 "qc6_3": "€20–50/month (up to 15 clients)",
 "qc6_4": "€50–100/month (up to 30 clients)",
 "qc6_5": "More than €100/month (above 30 clients)",
-"qc6_6": "I'd pay per active client (e.g., €3/client/month)"
+"qc6_6": "I'd pay per active client (e.g., €3/client/month)",
+"q_country": "Country where you usually train?"
 },
 "es": {
 "lang_name": "Español",
@@ -1435,7 +1471,8 @@ const T = {
 "qc6_3": "€20–50/mes (hasta 15 clientes)",
 "qc6_4": "€50–100/mes (hasta 30 clientes)",
 "qc6_5": "Más de €100/mes (más de 30 clientes)",
-"qc6_6": "Pagaría por cliente activo (ej: €3/cliente/mes)"
+"qc6_6": "Pagaría por cliente activo (ej: €3/cliente/mes)",
+"q_country": "¿País donde entrenas habitualmente?"
 },
 "fr": {
 "lang_name": "Français",
@@ -1709,7 +1746,8 @@ const T = {
 "qc6_3": "€20–50/mois (jusqu\'à 15 clients)",
 "qc6_4": "€50–100/mois (jusqu\'à 30 clients)",
 "qc6_5": "Plus de €100/mois (plus de 30 clients)",
-"qc6_6": "Je paierais par client actif (ex : €3/client/mois)"
+"qc6_6": "Je paierais par client actif (ex : €3/client/mois)",
+"q_country": "Pays où vous vous entraînez habituellement ?"
 },
 "de": {
 "lang_name": "Deutsch",
@@ -1983,7 +2021,8 @@ const T = {
 "qc6_3": "€20–50/Monat (bis 15 Klienten)",
 "qc6_4": "€50–100/Monat (bis 30 Klienten)",
 "qc6_5": "Mehr als €100/Monat (über 30 Klienten)",
-"qc6_6": "Ich würde pro aktivem Klienten zahlen (z.B. €3/Klient/Monat)"
+"qc6_6": "Ich würde pro aktivem Klienten zahlen (z.B. €3/Klient/Monat)",
+"q_country": "Land, in dem du normalerweise trainierst?"
 },
 "zh": {
 "lang_name": "中文",
@@ -2257,7 +2296,8 @@ const T = {
 "qc6_3": "€20–50/月（最多15位）",
 "qc6_4": "€50–100/月（最多30位）",
 "qc6_5": "超过€100/月（30位以上）",
-"qc6_6": "按活跃客户付费（如€3/客户/月）"
+"qc6_6": "按活跃客户付费（如€3/客户/月）",
+"q_country": "您通常在哪个国家训练？"
 }
 };
 
