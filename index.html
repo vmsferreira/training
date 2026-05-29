@@ -147,6 +147,7 @@
 <div class="tag-opt"><input type="checkbox" name="desportos" value="yoga" id="desportos_9"><label for="desportos_9" data-i18n="q1_9"></label></div>
 <div class="tag-opt"><input type="checkbox" name="desportos" value="futebol" id="desportos_10"><label for="desportos_10" data-i18n="q1_10"></label></div>
 <div class="tag-opt"><input type="checkbox" name="desportos" value="outro" id="desportos_11"><label for="desportos_11" data-i18n="q1_11"></label></div>
+<div class="tag-opt"><input type="checkbox" name="desportos" value="functional" id="desportos_12"><label for="desportos_12" data-i18n="q1_12"></label></div>
         </div>
       </div>
       <hr class="divider">
@@ -180,6 +181,15 @@
 <div class="opt-card"><input type="radio" name="idade" value="35-44" id="idade_3"><label for="idade_3" data-i18n="q4_3"></label></div>
 <div class="opt-card"><input type="radio" name="idade" value="45-54" id="idade_4"><label for="idade_4" data-i18n="q4_4"></label></div>
 <div class="opt-card"><input type="radio" name="idade" value="55+" id="idade_5"><label for="idade_5" data-i18n="q4_5"></label></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="question" id="coach-branch-q">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">★</span> <span data-i18n="q_coach"></span></label>
+        <div class="options-grid">
+          <div class="opt-card"><input type="radio" name="is_coach" value="sim" id="ic1" onchange="toggleCoachSection(this)"><label for="ic1" data-i18n="q_coach_1"></label></div>
+          <div class="opt-card"><input type="radio" name="is_coach" value="nao" id="ic2" onchange="toggleCoachSection(this)"><label for="ic2" data-i18n="q_coach_2"></label></div>
+          <div class="opt-card"><input type="radio" name="is_coach" value="ambos" id="ic3" onchange="toggleCoachSection(this)"><label for="ic3" data-i18n="q_coach_3"></label></div>
         </div>
       </div>
     </div>
@@ -493,6 +503,98 @@
       </div>
     </div>
   </div>
+
+  <!-- Secção Coach — branch condicional -->
+  <div class="section" id="coach-section" style="display:none;">
+    <div class="section-header" style="background:#FF6B3510;border-left-color:#FF6B35;">
+      <h2 style="color:#FF6B35;" data-i18n="sc_t"></h2>
+      <p data-i18n="sc_d"></p>
+    </div>
+    <div class="section-body">
+      <!-- QC1: Tipo de coaching -->
+      <div class="question">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">C1</span> <span data-i18n="qc1"></span> <span class="optional" data-i18n="multi_hint"></span></label>
+        <div class="tags-wrap">
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="pt_gym" id="ct1"><label for="ct1" data-i18n="qc1_1"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="running" id="ct2"><label for="ct2" data-i18n="qc1_2"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="crossfit" id="ct3"><label for="ct3" data-i18n="qc1_3"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="cycling" id="ct4"><label for="ct4" data-i18n="qc1_4"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="nutri" id="ct5"><label for="ct5" data-i18n="qc1_5"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="swim" id="ct6"><label for="ct6" data-i18n="qc1_6"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="online" id="ct7"><label for="ct7" data-i18n="qc1_7"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_tipo" value="outro" id="ct8"><label for="ct8" data-i18n="qc1_8"></label></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <!-- QC2: Nº clientes -->
+      <div class="question">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">C2</span> <span data-i18n="qc2"></span></label>
+        <div class="options-grid">
+          <div class="opt-card"><input type="radio" name="coach_clientes" value="1-5" id="cc1"><label for="cc1" data-i18n="qc2_1"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_clientes" value="6-15" id="cc2"><label for="cc2" data-i18n="qc2_2"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_clientes" value="16-30" id="cc3"><label for="cc3" data-i18n="qc2_3"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_clientes" value="31-50" id="cc4"><label for="cc4" data-i18n="qc2_4"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_clientes" value="50+" id="cc5"><label for="cc5" data-i18n="qc2_5"></label></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <!-- QC3: Como gere programas -->
+      <div class="question">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">C3</span> <span data-i18n="qc3"></span></label>
+        <div class="options-grid">
+          <div class="opt-card"><input type="radio" name="coach_gestao" value="excel" id="cg1"><label for="cg1" data-i18n="qc3_1"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_gestao" value="papel" id="cg2"><label for="cg2" data-i18n="qc3_2"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_gestao" value="whatsapp" id="cg3"><label for="cg3" data-i18n="qc3_3"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_gestao" value="app_coach" id="cg4"><label for="cg4" data-i18n="qc3_4"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_gestao" value="app_fitness" id="cg5"><label for="cg5" data-i18n="qc3_5"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_gestao" value="sem_sistema" id="cg6"><label for="cg6" data-i18n="qc3_6"></label></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <!-- QC4: Dificuldades -->
+      <div class="question">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">C4</span> <span data-i18n="qc4"></span> <span class="optional" data-i18n="multi_hint3"></span></label>
+        <div class="tags-wrap">
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="criar_prog" id="cd1"><label for="cd1" data-i18n="qc4_1"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="progress" id="cd2"><label for="cd2" data-i18n="qc4_2"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="comunicar" id="cd3"><label for="cd3" data-i18n="qc4_3"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="billing" id="cd4"><label for="cd4" data-i18n="qc4_4"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="ajustar" id="cd5"><label for="cd5" data-i18n="qc4_5"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="historico" id="cd6"><label for="cd6" data-i18n="qc4_6"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_dificuldades" value="sem_registo" id="cd7"><label for="cd7" data-i18n="qc4_7"></label></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <!-- QC5: O que seria indispensável -->
+      <div class="question">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">C5</span> <span data-i18n="qc5"></span> <span class="optional" data-i18n="multi_hint4"></span></label>
+        <div class="tags-wrap">
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="prog_rapido" id="cf1"><label for="cf1" data-i18n="qc5_1"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="templates" id="cf2"><label for="cf2" data-i18n="qc5_2"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="tracking" id="cf3"><label for="cf3" data-i18n="qc5_3"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="messaging" id="cf4"><label for="cf4" data-i18n="qc5_4"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="alertas" id="cf5"><label for="cf5" data-i18n="qc5_5"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="billing" id="cf6"><label for="cf6" data-i18n="qc5_6"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="relatorios" id="cf7"><label for="cf7" data-i18n="qc5_7"></label></div>
+          <div class="tag-opt"><input type="checkbox" name="coach_features" value="ia_adaptacao" id="cf8"><label for="cf8" data-i18n="qc5_8"></label></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <!-- QC6: Preço -->
+      <div class="question">
+        <label class="q-label"><span class="q-number" style="background:#FF6B35;">C6</span> <span data-i18n="qc6"></span></label>
+        <div class="options-grid">
+          <div class="opt-card"><input type="radio" name="coach_preco" value="nada" id="cp1"><label for="cp1" data-i18n="qc6_1"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_preco" value="ate20" id="cp2"><label for="cp2" data-i18n="qc6_2"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_preco" value="20-50" id="cp3"><label for="cp3" data-i18n="qc6_3"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_preco" value="50-100" id="cp4"><label for="cp4" data-i18n="qc6_4"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_preco" value="100+" id="cp5"><label for="cp5" data-i18n="qc6_5"></label></div>
+          <div class="opt-card"><input type="radio" name="coach_preco" value="per_client" id="cp6"><label for="cp6" data-i18n="qc6_6"></label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="submit-wrap">
     <button type="submit" class="btn-submit" id="submitBtn" data-i18n="btn"></button>
     <p class="submit-note" data-i18n="submit_note"></p>
@@ -565,6 +667,7 @@ const T = {
 "q1_9": "🧘 Yoga / Pilates",
 "q1_10": "⚽ Futebol / Equipa",
 "q1_11": "➕ Outro",
+"q1_12": "🏋️‍♀️ Functional Fitness / CrossFit",
 "q2": "Com que frequência treinas por semana?",
 "q2_1": "1 a 2 vezes",
 "q2_2": "3 a 4 vezes",
@@ -732,7 +835,59 @@ const T = {
 "q24_4": "€7 a €12 por mês",
 "q24_5": "€12 a €20 por mês",
 "q24_6": "Mais de €20 — se valer realmente a pena",
-"q25": "Por último — se pudesses dizer a um developer de apps de fitness UMA coisa que mudarias ou adicionarias, o que seria?"
+"q25": "Por último — se pudesses dizer a um developer de apps de fitness UMA coisa que mudarias ou adicionarias, o que seria?",
+"q_coach": "Exerces actividade como coach, personal trainer ou treinador?",
+"q_coach_1": "Sim — sou coach / PT / treinador",
+"q_coach_2": "Não — sou atleta / praticante",
+"q_coach_3": "Ambos — treino e faço coaching",
+"sc_t": "Secção Coach — Para Coaches e Personal Trainers",
+"sc_d": "As próximas perguntas são específicas para a tua actividade de coaching. Se não és coach, passa à secção seguinte.",
+"qc1": "Que tipo de coaching exerces?",
+"qc1_1": "💪 Personal Trainer (ginásio / força)",
+"qc1_2": "🏃 Treinador de corrida",
+"qc1_3": "🏋️‍♀️ Coach CrossFit / Functional",
+"qc1_4": "🚴 Coach de ciclismo / triatlo",
+"qc1_5": "🍎 Nutricionista / Coach nutricional",
+"qc1_6": "🏊 Coach de natação",
+"qc1_7": "💻 Online coaching (multi-desporto)",
+"qc1_8": "➕ Outro",
+"qc2": "Quantos clientes activos tens actualmente?",
+"qc2_1": "1 a 5 clientes",
+"qc2_2": "6 a 15 clientes",
+"qc2_3": "16 a 30 clientes",
+"qc2_4": "31 a 50 clientes",
+"qc2_5": "Mais de 50 clientes",
+"qc3": "Como geres actualmente os programas dos teus clientes?",
+"qc3_1": "Excel / Google Sheets",
+"qc3_2": "Papel / caderno",
+"qc3_3": "WhatsApp / email",
+"qc3_4": "App específica de coaching (TrueCoach, Trainerize, etc.)",
+"qc3_5": "App de fitness genérica com função coach",
+"qc3_6": "Não tenho sistema organizado",
+"qc4": "O que é mais difícil na gestão dos teus clientes?",
+"qc4_1": "⏱ Criar programas personalizados para cada cliente",
+"qc4_2": "📊 Acompanhar o progresso de múltiplos clientes em simultâneo",
+"qc4_3": "💬 Comunicar com os clientes de forma eficiente",
+"qc4_4": "💰 Gerir pagamentos e sessões",
+"qc4_5": "🔄 Ajustar os programas em tempo real",
+"qc4_6": "📋 Manter o histórico de treinos organizado",
+"qc4_7": "📵 Clientes que não registam os treinos",
+"qc5": "O que seria indispensável numa app de gestão de clientes de coaching?",
+"qc5_1": "🚀 Criação rápida de programas personalizados",
+"qc5_2": "📁 Templates reutilizáveis por tipo de cliente",
+"qc5_3": "📈 Tracking automático do progresso dos clientes",
+"qc5_4": "💬 Comunicação in-app com clientes",
+"qc5_5": "🔔 Alertas quando um cliente falha um treino",
+"qc5_6": "💳 Gestão de pagamentos e sessões",
+"qc5_7": "📋 Relatórios de progresso exportáveis",
+"qc5_8": "🤖 Adaptação automática do plano com IA",
+"qc6": "Quanto pagarias por mês por uma plataforma que centralizasse a gestão de todos os teus clientes com análise de dados?",
+"qc6_1": "Nada — uso ferramentas gratuitas",
+"qc6_2": "Até €20/mês (até 5 clientes)",
+"qc6_3": "€20–50/mês (até 15 clientes)",
+"qc6_4": "€50–100/mês (até 30 clientes)",
+"qc6_5": "Mais de €100/mês (acima de 30 clientes)",
+"qc6_6": "Pagaria por cliente activo (ex: €3/cliente/mês)"
 },
 "en": {
 "lang_name": "English",
@@ -786,6 +941,7 @@ const T = {
 "q1_9": "🧘 Yoga / Pilates",
 "q1_10": "⚽ Football / Team sports",
 "q1_11": "➕ Other",
+"q1_12": "🏋️‍♀️ Functional Fitness / CrossFit",
 "q2": "How often do you train per week?",
 "q2_1": "1 to 2 times",
 "q2_2": "3 to 4 times",
@@ -953,7 +1109,59 @@ const T = {
 "q24_4": "€7 to €12 per month",
 "q24_5": "€12 to €20 per month",
 "q24_6": "More than €20 — if it's genuinely worth it",
-"q25": "Finally — if you could tell a fitness app developer ONE thing you'd change or add, what would it be?"
+"q25": "Finally — if you could tell a fitness app developer ONE thing you'd change or add, what would it be?",
+"q_coach": "Do you work as a coach, personal trainer or sports instructor?",
+"q_coach_1": "Yes — I am a coach / PT / trainer",
+"q_coach_2": "No — I am an athlete / recreational practitioner",
+"q_coach_3": "Both — I train and do coaching",
+"sc_t": "Coach Section — For Coaches and Personal Trainers",
+"sc_d": "The next questions are specific to your coaching activity. If you are not a coach, skip to the next section.",
+"qc1": "What type of coaching do you do?",
+"qc1_1": "💪 Personal Trainer (gym / strength)",
+"qc1_2": "🏃 Running coach",
+"qc1_3": "🏋️‍♀️ CrossFit / Functional coach",
+"qc1_4": "🚴 Cycling / triathlon coach",
+"qc1_5": "🍎 Nutritionist / nutrition coach",
+"qc1_6": "🏊 Swimming coach",
+"qc1_7": "💻 Online coaching (multi-sport)",
+"qc1_8": "➕ Other",
+"qc2": "How many active clients do you currently have?",
+"qc2_1": "1 to 5 clients",
+"qc2_2": "6 to 15 clients",
+"qc2_3": "16 to 30 clients",
+"qc2_4": "31 to 50 clients",
+"qc2_5": "More than 50 clients",
+"qc3": "How do you currently manage your clients' programmes?",
+"qc3_1": "Excel / Google Sheets",
+"qc3_2": "Paper / notebook",
+"qc3_3": "WhatsApp / email",
+"qc3_4": "Dedicated coaching app (TrueCoach, Trainerize, etc.)",
+"qc3_5": "Generic fitness app with coach features",
+"qc3_6": "I have no organised system",
+"qc4": "What is most difficult about managing your clients?",
+"qc4_1": "⏱ Creating personalised programmes for each client",
+"qc4_2": "📊 Tracking multiple clients' progress simultaneously",
+"qc4_3": "💬 Communicating with clients efficiently",
+"qc4_4": "💰 Managing payments and sessions",
+"qc4_5": "🔄 Adjusting programmes in real time",
+"qc4_6": "📋 Keeping training history organised",
+"qc4_7": "📵 Clients who don't log their workouts",
+"qc5": "What would be essential in a client management app for coaches?",
+"qc5_1": "🚀 Quick creation of personalised programmes",
+"qc5_2": "📁 Reusable templates by client type",
+"qc5_3": "📈 Automatic tracking of client progress",
+"qc5_4": "💬 In-app communication with clients",
+"qc5_5": "🔔 Alerts when a client misses a session",
+"qc5_6": "💳 Payment and session management",
+"qc5_7": "📋 Exportable progress reports",
+"qc5_8": "🤖 Automatic plan adaptation with AI",
+"qc6": "How much would you pay per month for a platform that centralised the management of all your clients with data analysis?",
+"qc6_1": "Nothing — I use free tools",
+"qc6_2": "Up to €20/month (up to 5 clients)",
+"qc6_3": "€20–50/month (up to 15 clients)",
+"qc6_4": "€50–100/month (up to 30 clients)",
+"qc6_5": "More than €100/month (above 30 clients)",
+"qc6_6": "I'd pay per active client (e.g., €3/client/month)"
 },
 "es": {
 "lang_name": "Español",
@@ -1007,6 +1215,7 @@ const T = {
 "q1_9": "🧘 Yoga / Pilates",
 "q1_10": "⚽ Fútbol / Deporte de equipo",
 "q1_11": "➕ Otro",
+"q1_12": "🏋️‍♀️ Functional Fitness / CrossFit",
 "q2": "¿Con qué frecuencia entrenas por semana?",
 "q2_1": "1 o 2 veces",
 "q2_2": "3 o 4 veces",
@@ -1174,7 +1383,59 @@ const T = {
 "q24_4": "€7 a €12 al mes",
 "q24_5": "€12 a €20 al mes",
 "q24_6": "Más de €20 — si realmente vale la pena",
-"q25": "Por último — si pudieras decirle a un desarrollador de apps de fitness UNA cosa que cambiarías o añadirías, ¿cuál sería?"
+"q25": "Por último — si pudieras decirle a un desarrollador de apps de fitness UNA cosa que cambiarías o añadirías, ¿cuál sería?",
+"q_coach": "¿Ejerces actividad como coach, entrenador personal o instructor?",
+"q_coach_1": "Sí — soy coach / entrenador personal",
+"q_coach_2": "No — soy deportista / practicante",
+"q_coach_3": "Ambos — entreno y hago coaching",
+"sc_t": "Sección Coach — Para Coaches y Entrenadores Personales",
+"sc_d": "Las siguientes preguntas son específicas para tu actividad de coaching. Si no eres coach, pasa a la siguiente sección.",
+"qc1": "¿Qué tipo de coaching realizas?",
+"qc1_1": "💪 Entrenador personal (gimnasio / fuerza)",
+"qc1_2": "🏃 Entrenador de running",
+"qc1_3": "🏋️‍♀️ Coach CrossFit / Funcional",
+"qc1_4": "🚴 Coach de ciclismo / triatlón",
+"qc1_5": "🍎 Nutricionista / Coach nutricional",
+"qc1_6": "🏊 Coach de natación",
+"qc1_7": "💻 Online coaching (multiDeporte)",
+"qc1_8": "➕ Otro",
+"qc2": "¿Cuántos clientes activos tienes actualmente?",
+"qc2_1": "1 a 5 clientes",
+"qc2_2": "6 a 15 clientes",
+"qc2_3": "16 a 30 clientes",
+"qc2_4": "31 a 50 clientes",
+"qc2_5": "Más de 50 clientes",
+"qc3": "¿Cómo gestionas actualmente los programas de tus clientes?",
+"qc3_1": "Excel / Google Sheets",
+"qc3_2": "Papel / cuaderno",
+"qc3_3": "WhatsApp / email",
+"qc3_4": "App específica de coaching (TrueCoach, Trainerize, etc.)",
+"qc3_5": "App genérica de fitness con funciones de coach",
+"qc3_6": "No tengo un sistema organizado",
+"qc4": "¿Qué es lo más difícil en la gestión de tus clientes?",
+"qc4_1": "⏱ Crear programas personalizados para cada cliente",
+"qc4_2": "📊 Seguir el progreso de varios clientes simultáneamente",
+"qc4_3": "💬 Comunicarme con los clientes de forma eficiente",
+"qc4_4": "💰 Gestionar pagos y sesiones",
+"qc4_5": "🔄 Ajustar programas en tiempo real",
+"qc4_6": "📋 Mantener el historial de entrenamientos organizado",
+"qc4_7": "📵 Clientes que no registran sus entrenamientos",
+"qc5": "¿Qué sería indispensable en una app de gestión de clientes para coaches?",
+"qc5_1": "🚀 Creación rápida de programas personalizados",
+"qc5_2": "📁 Plantillas reutilizables por tipo de cliente",
+"qc5_3": "📈 Seguimiento automático del progreso",
+"qc5_4": "💬 Comunicación in-app con clientes",
+"qc5_5": "🔔 Alertas cuando un cliente falta una sesión",
+"qc5_6": "💳 Gestión de pagos y sesiones",
+"qc5_7": "📋 Informes de progreso exportables",
+"qc5_8": "🤖 Adaptación automática del plan con IA",
+"qc6": "¿Cuánto pagarías al mes por una plataforma que centralizara la gestión de todos tus clientes con análisis de datos?",
+"qc6_1": "Nada — uso herramientas gratuitas",
+"qc6_2": "Hasta €20/mes (hasta 5 clientes)",
+"qc6_3": "€20–50/mes (hasta 15 clientes)",
+"qc6_4": "€50–100/mes (hasta 30 clientes)",
+"qc6_5": "Más de €100/mes (más de 30 clientes)",
+"qc6_6": "Pagaría por cliente activo (ej: €3/cliente/mes)"
 },
 "fr": {
 "lang_name": "Français",
@@ -1228,6 +1489,7 @@ const T = {
 "q1_9": "🧘 Yoga / Pilates",
 "q1_10": "⚽ Football / Sport collectif",
 "q1_11": "➕ Autre",
+"q1_12": "🏋️‍♀️ Functional Fitness / CrossFit",
 "q2": "À quelle fréquence vous entraînez-vous par semaine ?",
 "q2_1": "1 à 2 fois",
 "q2_2": "3 à 4 fois",
@@ -1395,7 +1657,59 @@ const T = {
 "q24_4": "€7 à €12 par mois",
 "q24_5": "€12 à €20 par mois",
 "q24_6": "Plus de €20 — si ça en vaut vraiment la peine",
-"q25": "Pour finir — si vous pouviez dire à un développeur d'apps de fitness UNE chose que vous changeriez ou ajouteriez, quelle serait-elle ?"
+"q25": "Pour finir — si vous pouviez dire à un développeur d'apps de fitness UNE chose que vous changeriez ou ajouteriez, quelle serait-elle ?",
+"q_coach": "Exercez-vous une activité de coach, entraîneur personnel ou instructeur sportif ?",
+"q_coach_1": "Oui — je suis coach / entraîneur personnel",
+"q_coach_2": "Non — je suis sportif / pratiquant",
+"q_coach_3": "Les deux — je m\'entraîne et je coache",
+"sc_t": "Section Coach — Pour les Coachs et Entraîneurs Personnels",
+"sc_d": "Les questions suivantes sont spécifiques à votre activité de coaching. Si vous n\'êtes pas coach, passez à la section suivante.",
+"qc1": "Quel type de coaching pratiquez-vous ?",
+"qc1_1": "💪 Coach personnel (gym / force)",
+"qc1_2": "🏃 Entraîneur de course",
+"qc1_3": "🏋️‍♀️ Coach CrossFit / Fonctionnel",
+"qc1_4": "🚴 Coach cyclisme / triathlon",
+"qc1_5": "🍎 Nutritionniste / Coach nutritionnel",
+"qc1_6": "🏊 Coach natation",
+"qc1_7": "💻 Coaching en ligne (multi-sport)",
+"qc1_8": "➕ Autre",
+"qc2": "Combien de clients actifs avez-vous actuellement ?",
+"qc2_1": "1 à 5 clients",
+"qc2_2": "6 à 15 clients",
+"qc2_3": "16 à 30 clients",
+"qc2_4": "31 à 50 clients",
+"qc2_5": "Plus de 50 clients",
+"qc3": "Comment gérez-vous actuellement les programmes de vos clients ?",
+"qc3_1": "Excel / Google Sheets",
+"qc3_2": "Papier / carnet",
+"qc3_3": "WhatsApp / email",
+"qc3_4": "App dédiée au coaching (TrueCoach, Trainerize, etc.)",
+"qc3_5": "App de fitness générique avec fonctions coach",
+"qc3_6": "Je n\'ai pas de système organisé",
+"qc4": "Qu\'est-ce qui est le plus difficile dans la gestion de vos clients ?",
+"qc4_1": "⏱ Créer des programmes personnalisés pour chaque client",
+"qc4_2": "📊 Suivre la progression de plusieurs clients simultanément",
+"qc4_3": "💬 Communiquer efficacement avec les clients",
+"qc4_4": "💰 Gérer les paiements et les séances",
+"qc4_5": "🔄 Ajuster les programmes en temps réel",
+"qc4_6": "📋 Tenir l\'historique des entraînements organisé",
+"qc4_7": "📵 Les clients qui ne notent pas leurs entraînements",
+"qc5": "Qu\'est-ce qui serait indispensable dans une app de gestion de clients pour coachs ?",
+"qc5_1": "🚀 Création rapide de programmes personnalisés",
+"qc5_2": "📁 Templates réutilisables par type de client",
+"qc5_3": "📈 Suivi automatique de la progression des clients",
+"qc5_4": "💬 Communication in-app avec les clients",
+"qc5_5": "🔔 Alertes si un client manque une séance",
+"qc5_6": "💳 Gestion des paiements et des séances",
+"qc5_7": "📋 Rapports de progression exportables",
+"qc5_8": "🤖 Adaptation automatique du plan avec IA",
+"qc6": "Combien paieriez-vous par mois pour une plateforme qui centralise la gestion de tous vos clients avec analyse de données ?",
+"qc6_1": "Rien — j\'utilise des outils gratuits",
+"qc6_2": "Jusqu\'à €20/mois (jusqu\'à 5 clients)",
+"qc6_3": "€20–50/mois (jusqu\'à 15 clients)",
+"qc6_4": "€50–100/mois (jusqu\'à 30 clients)",
+"qc6_5": "Plus de €100/mois (plus de 30 clients)",
+"qc6_6": "Je paierais par client actif (ex : €3/client/mois)"
 },
 "de": {
 "lang_name": "Deutsch",
@@ -1449,6 +1763,7 @@ const T = {
 "q1_9": "🧘 Yoga / Pilates",
 "q1_10": "⚽ Fußball / Mannschaftssport",
 "q1_11": "➕ Andere",
+"q1_12": "🏋️‍♀️ Functional Fitness / CrossFit",
 "q2": "Wie oft trainierst du pro Woche?",
 "q2_1": "1 bis 2 Mal",
 "q2_2": "3 bis 4 Mal",
@@ -1616,7 +1931,59 @@ const T = {
 "q24_4": "€7 bis €12 pro Monat",
 "q24_5": "€12 bis €20 pro Monat",
 "q24_6": "Mehr als €20 — wenn es wirklich lohnenswert ist",
-"q25": "Zum Schluss — wenn du einem Fitness-App-Entwickler EINE Sache sagen könntest, die du ändern oder hinzufügen würdest, was wäre das?"
+"q25": "Zum Schluss — wenn du einem Fitness-App-Entwickler EINE Sache sagen könntest, die du ändern oder hinzufügen würdest, was wäre das?",
+"q_coach": "Bist du als Coach, Personal Trainer oder Sporttrainer tätig?",
+"q_coach_1": "Ja — ich bin Coach / Personal Trainer",
+"q_coach_2": "Nein — ich bin Sportler / Freizeitsportler",
+"q_coach_3": "Beides — ich trainiere und coache",
+"sc_t": "Coach-Bereich — Für Coaches und Personal Trainer",
+"sc_d": "Die folgenden Fragen betreffen deine Coaching-Tätigkeit. Wenn du kein Coach bist, überspringe diesen Abschnitt.",
+"qc1": "Welche Art von Coaching betreibst du?",
+"qc1_1": "💪 Personal Trainer (Fitnessstudio / Kraft)",
+"qc1_2": "🏃 Lauftrainer",
+"qc1_3": "🏋️‍♀️ CrossFit / Functional Coach",
+"qc1_4": "🚴 Rad- / Triathlon-Coach",
+"qc1_5": "🍎 Ernährungsberater / Ernährungs-Coach",
+"qc1_6": "🏊 Schwimmtrainer",
+"qc1_7": "💻 Online-Coaching (Multi-Sport)",
+"qc1_8": "➕ Andere",
+"qc2": "Wie viele aktive Klienten hast du derzeit?",
+"qc2_1": "1 bis 5 Klienten",
+"qc2_2": "6 bis 15 Klienten",
+"qc2_3": "16 bis 30 Klienten",
+"qc2_4": "31 bis 50 Klienten",
+"qc2_5": "Mehr als 50 Klienten",
+"qc3": "Wie verwaltest du derzeit die Programme deiner Klienten?",
+"qc3_1": "Excel / Google Sheets",
+"qc3_2": "Papier / Notizbuch",
+"qc3_3": "WhatsApp / E-Mail",
+"qc3_4": "Dedizierte Coaching-App (TrueCoach, Trainerize, etc.)",
+"qc3_5": "Allgemeine Fitness-App mit Coach-Funktionen",
+"qc3_6": "Ich habe kein organisiertes System",
+"qc4": "Was ist am schwierigsten bei der Verwaltung deiner Klienten?",
+"qc4_1": "⏱ Personalisierte Programme für jeden Klienten erstellen",
+"qc4_2": "📊 Fortschritt mehrerer Klienten gleichzeitig verfolgen",
+"qc4_3": "💬 Effizient mit Klienten kommunizieren",
+"qc4_4": "💰 Zahlungen und Sitzungen verwalten",
+"qc4_5": "🔄 Programme in Echtzeit anpassen",
+"qc4_6": "📋 Trainingshistorie organisiert halten",
+"qc4_7": "📵 Klienten, die ihr Training nicht erfassen",
+"qc5": "Was wäre unverzichtbar in einer Klienten-Management-App für Coaches?",
+"qc5_1": "🚀 Schnelle Erstellung personalisierter Programme",
+"qc5_2": "📁 Wiederverwendbare Vorlagen nach Kliententyp",
+"qc5_3": "📈 Automatisches Tracking des Klientenfortschritts",
+"qc5_4": "💬 In-App-Kommunikation mit Klienten",
+"qc5_5": "🔔 Benachrichtigungen wenn Klient fehlt",
+"qc5_6": "💳 Zahlungs- und Sitzungsverwaltung",
+"qc5_7": "📋 Exportierbare Fortschrittsberichte",
+"qc5_8": "🤖 Automatische Plananpassung mit KI",
+"qc6": "Wie viel würdest du pro Monat für eine Plattform bezahlen, die die Verwaltung aller deiner Klienten mit Datenanalyse zentralisiert?",
+"qc6_1": "Nichts — ich nutze kostenlose Tools",
+"qc6_2": "Bis zu €20/Monat (bis 5 Klienten)",
+"qc6_3": "€20–50/Monat (bis 15 Klienten)",
+"qc6_4": "€50–100/Monat (bis 30 Klienten)",
+"qc6_5": "Mehr als €100/Monat (über 30 Klienten)",
+"qc6_6": "Ich würde pro aktivem Klienten zahlen (z.B. €3/Klient/Monat)"
 },
 "zh": {
 "lang_name": "中文",
@@ -1670,6 +2037,7 @@ const T = {
 "q1_9": "🧘 瑜伽 / 普拉提",
 "q1_10": "⚽ 足球 / 团队运动",
 "q1_11": "➕ 其他",
+"q1_12": "🏋️‍♀️ 功能性训练 / CrossFit",
 "q2": "您每周训练几次？",
 "q2_1": "1至2次",
 "q2_2": "3至4次",
@@ -1837,7 +2205,59 @@ const T = {
 "q24_4": "€7至€12/月",
 "q24_5": "€12至€20/月",
 "q24_6": "超过€20 — 如果真的值得的话",
-"q25": "最后 — 如果您可以告诉一个健身应用开发者您会改变或添加的一件事，那会是什么？"
+"q25": "最后 — 如果您可以告诉一个健身应用开发者您会改变或添加的一件事，那会是什么？",
+"q_coach": "您是否从事教练、私人训练师或运动指导员工作？",
+"q_coach_1": "是 — 我是教练/私人训练师",
+"q_coach_2": "否 — 我是运动员/爱好者",
+"q_coach_3": "两者兼有 — 我既训练也做教练",
+"sc_t": "教练专区 — 面向教练和私人训练师",
+"sc_d": "以下问题专门针对您的教练工作。如果您不是教练，请跳至下一部分。",
+"qc1": "您从事哪种类型的教练工作？",
+"qc1_1": "💪 私人训练师（健身房/力量）",
+"qc1_2": "🏃 跑步教练",
+"qc1_3": "🏋️‍♀️ CrossFit/功能性训练教练",
+"qc1_4": "🚴 骑行/铁人三项教练",
+"qc1_5": "🍎 营养师/营养教练",
+"qc1_6": "🏊 游泳教练",
+"qc1_7": "💻 在线教练（多项运动）",
+"qc1_8": "➕ 其他",
+"qc2": "您目前有多少位活跃客户？",
+"qc2_1": "1至5位",
+"qc2_2": "6至15位",
+"qc2_3": "16至30位",
+"qc2_4": "31至50位",
+"qc2_5": "超过50位",
+"qc3": "您目前如何管理客户的训练计划？",
+"qc3_1": "Excel / Google表格",
+"qc3_2": "纸质/笔记本",
+"qc3_3": "微信/邮件",
+"qc3_4": "专业教练应用（TrueCoach等）",
+"qc3_5": "带教练功能的通用健身应用",
+"qc3_6": "没有系统化管理",
+"qc4": "管理客户最困难的是什么？",
+"qc4_1": "⏱ 为每位客户制定个性化计划",
+"qc4_2": "📊 同时跟踪多位客户的进展",
+"qc4_3": "💬 高效与客户沟通",
+"qc4_4": "💰 管理付款和训练课程",
+"qc4_5": "🔄 实时调整计划",
+"qc4_6": "📋 保持训练记录有序",
+"qc4_7": "📵 不记录训练的客户",
+"qc5": "教练客户管理应用中什么功能是不可或缺的？",
+"qc5_1": "🚀 快速创建个性化计划",
+"qc5_2": "📁 可重复使用的模板",
+"qc5_3": "📈 自动跟踪客户进展",
+"qc5_4": "💬 应用内与客户沟通",
+"qc5_5": "🔔 客户缺席时的提醒",
+"qc5_6": "💳 付款和课程管理",
+"qc5_7": "📋 可导出的进展报告",
+"qc5_8": "🤖 AI自动调整计划",
+"qc6": "如果有一个平台能集中管理您所有客户并提供数据分析，您每月愿意支付多少？",
+"qc6_1": "不付费 — 使用免费工具",
+"qc6_2": "最多€20/月（最多5位客户）",
+"qc6_3": "€20–50/月（最多15位）",
+"qc6_4": "€50–100/月（最多30位）",
+"qc6_5": "超过€100/月（30位以上）",
+"qc6_6": "按活跃客户付费（如€3/客户/月）"
 }
 };
 
@@ -1937,6 +2357,18 @@ form.addEventListener('submit', async (e) => {
 document.getElementById('thankyou').addEventListener('click', () => {
   document.getElementById('thankyou').classList.remove('show');
 });
+
+function toggleCoachSection(el) {
+  const val = el.value;
+  const sec = document.getElementById('coach-section');
+  if (sec) {
+    sec.style.display = (val === 'sim' || val === 'ambos') ? 'block' : 'none';
+    // Scroll to coach section if showing
+    if (val !== 'nao') {
+      setTimeout(() => sec.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+    }
+  }
+}
 </script>
 </body>
 </html>
