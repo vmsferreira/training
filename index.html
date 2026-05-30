@@ -124,9 +124,9 @@
 </header>
 
 <div class="container">
-<iframe name="nexus_iframe" id="nexus_iframe" style="display:none;"></iframe>
+<!-- iframe removido — submissão via fetch GET -->
 
-<form id="surveyForm" target="nexus_iframe" action="https://script.google.com/macros/s/AKfycbz4dbUD0Y3c1u1Ya6vtsHc6zV3M2mVENxE3HutjBS2DBdCWUVS6r7qw6Y8wXNiGRcw/exec" method="POST" novalidate>
+<form id="surveyForm" data-gas-url="https://script.google.com/macros/s/AKfycbz92RVlUFNWMMBvVeZ3VBVfOpbQQzfiS67_DlY6MPJDiSmYJV18HI4C3GN4E8WzJjXv/exec" action="https://script.google.com/macros/s/AKfycbz92RVlUFNWMMBvVeZ3VBVfOpbQQzfiS67_DlY6MPJDiSmYJV18HI4C3GN4E8WzJjXv/exec" novalidate>
   <input type="hidden" name="_lang" id="hidden_lang" value="pt">
 
   <div class="section">
@@ -2368,32 +2368,54 @@ window.addEventListener('scroll', () => {
 
 // Form submit — iframe approach (evita problemas de CORS com Google Apps Script)
   const form = document.getElementById('surveyForm');
-  let _formSubmitted = false;
 
   // Quando o iframe carrega (após o redirect do Apps Script), mostra o obrigado
-  document.getElementById('nexus_iframe').addEventListener('load', function() {
-    if (_formSubmitted) {
-      document.getElementById('thankyou').classList.add('show');
-      _formSubmitted = false;
-    }
-  });
-
+  // ── FORM SUBMIT — GET via fetch no-cors (evita problema de redirect POST→GET do Apps Script) ──
   form.addEventListener('submit', function(e) {
+    e.preventDefault();
     const d = T[currentLang] || T.pt;
     const btn = document.getElementById('submitBtn');
+    const GAS_URL = form.getAttribute('data-gas-url') || form.action;
 
-    // Demo mode — sem URL real
-    if (form.action.includes('COLOCA_AQUI')) {
-      e.preventDefault();
+    // Demo mode
+    if (!GAS_URL || GAS_URL.includes('COLOCA_AQUI')) {
       document.getElementById('thankyou').classList.add('show');
       return;
     }
 
-    // Submissão real — form submete nativamente para o iframe oculto
-    _formSubmitted = true;
     btn.innerHTML = d.btn_sending || 'A enviar…';
     btn.disabled = true;
-    // NÃO chamar preventDefault() — o browser submete para nexus_iframe
+
+    // Recolher todos os campos — checkboxes com múltiplas selecções são unidas com vírgula
+    const formData = new FormData(form);
+    const params = {};
+    for (const [key, val] of formData.entries()) {
+      if (params[key]) {
+        params[key] = params[key] + ',' + val;
+      } else {
+        params[key] = val;
+      }
+    }
+    // Adicionar língua e timestamp
+    params['_lang'] = currentLang;
+    params['_ts']   = new Date().toISOString();
+
+    // Truncar feedback_livre se muito longo (limite URL ~2000 chars)
+    if (params['feedback_livre'] && params['feedback_livre'].length > 400) {
+      params['feedback_livre'] = params['feedback_livre'].substring(0, 400);
+    }
+
+    const url = GAS_URL + '?' + new URLSearchParams(params).toString();
+
+    // Enviar via fetch no-cors (GET) — sem problema de redirect do Apps Script
+    fetch(url, { method: 'GET', mode: 'no-cors' })
+      .then(() => {
+        document.getElementById('thankyou').classList.add('show');
+      })
+      .catch(() => {
+        // Mesmo com erro de rede, mostrar confirmação (Apps Script pode ter recebido)
+        document.getElementById('thankyou').classList.add('show');
+      });
   });
 
   document.getElementById('thankyou').addEventListener('click', () => {
