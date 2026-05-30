@@ -2366,8 +2366,6 @@ window.addEventListener('scroll', () => {
   document.getElementById('progressBar').style.width = Math.min(pct, 100) + '%';
 });
 
-// Form submit
-const form = document.getElementById('surveyForm');
 // Form submit — iframe approach (evita problemas de CORS com Google Apps Script)
   const form = document.getElementById('surveyForm');
   let _formSubmitted = false;
@@ -2385,29 +2383,20 @@ const form = document.getElementById('surveyForm');
     const btn = document.getElementById('submitBtn');
 
     // Demo mode — sem URL real
-    if (form.action.includes('COLOCA_AQUI') || form.action.includes('exec') === false) {
+    if (form.action.includes('COLOCA_AQUI')) {
       e.preventDefault();
       document.getElementById('thankyou').classList.add('show');
       return;
     }
 
-    // Submissão real — deixar o browser submeter para o iframe
+    // Submissão real — form submete nativamente para o iframe oculto
     _formSubmitted = true;
     btn.innerHTML = d.btn_sending || 'A enviar…';
     btn.disabled = true;
-    // Não chamar preventDefault() — o form submete nativamente para o iframe
+    // NÃO chamar preventDefault() — o browser submete para nexus_iframe
   });
-      document.getElementById('thankyou').classList.add('show');
-    } catch(err) {
-      document.getElementById('thankyou').classList.add('show');
-    }
-  } catch {
-    btn.innerHTML = d.btn_error || 'Error';
-    btn.disabled = false;
-  }
-});
 
-document.getElementById('thankyou').addEventListener('click', () => {
+  document.getElementById('thankyou').addEventListener('click', () => {
   document.getElementById('thankyou').classList.remove('show');
 });
 
