@@ -2404,11 +2404,9 @@ function toggleCoachSection(el) {
   const val = el.value;
   const sec = document.getElementById('coach-section');
   if (sec) {
+    // Show coach section at bottom of form when coach or both selected
+    // No auto-scroll — user continues filling the form naturally
     sec.style.display = (val === 'sim' || val === 'ambos') ? 'block' : 'none';
-    // Scroll to coach section if showing
-    if (val !== 'nao') {
-      setTimeout(() => sec.scrollIntoView({behavior:'smooth', block:'start'}), 100);
-    }
   }
 }
 </script>
